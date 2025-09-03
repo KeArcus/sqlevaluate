@@ -12,6 +12,14 @@ A Go project that uses ANTLR4 to parse SQL statements, focusing on WHERE clause 
 ## Installation
 
 ```bash
+go get github.com/KeArcus/sqlevaluate
+```
+
+For development:
+```bash
+# Clone the repository
+git clone https://github.com/KeArcus/sqlevaluate.git
+cd sqlevaluate
 go mod tidy
 ```
 
@@ -22,7 +30,7 @@ package main
 
 import (
     "fmt"
-    "KeArcus/sqlevaluate/parser"
+    "github.com/KeArcus/sqlevaluate/parser"
 )
 
 func main() {
@@ -32,13 +40,21 @@ func main() {
         "region": "us-west-2",
     }
     
+    // Evaluate complete SQL statement
     sql := "SELECT * FROM users WHERE user_id = 123 AND status = 'active'"
-    result, err := parser.EvaluateWhere(sql, envs)
+    result, err := parser.EvaluateSQL(sql, envs)
     if err != nil {
         panic(err)
     }
+    fmt.Printf("SQL result: %v\n", result)
     
-    fmt.Printf("WHERE clause matches: %v\n", result)
+    // Evaluate WHERE expression only
+    whereExpr := "user_id = 123 AND status = 'active'"
+    result2, err := parser.EvaluateWhere(whereExpr, envs)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf("WHERE result: %v\n", result2)
 }
 ```
 
@@ -50,7 +66,7 @@ func main() {
 
 ```bash
 # Generate parser from grammar
-antlr4 -Dlanguage=Go -o parser grammar/SQL.g4
+antlr -Dlanguage=Go -o parser grammar/SQL.g4
 
 # Run examples
 go run examples/basic_usage.go

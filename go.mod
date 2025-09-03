@@ -1,4 +1,4 @@
-module KeArcus/sqlevaluate
+module github.com/KeArcus/sqlevaluate
 
 go 1.22
 

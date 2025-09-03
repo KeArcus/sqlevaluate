@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"KeArcus/sqlevaluate/parser"
+	"github.com/KeArcus/sqlevaluate/parser"
 )
 
 func main() {

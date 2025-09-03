@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"KeArcus/sqlevaluate/parser"
+	"github.com/KeArcus/sqlevaluate/parser"
 )
 
 func main() {
