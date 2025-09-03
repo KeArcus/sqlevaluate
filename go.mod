@@ -1,4 +1,4 @@
-module github.com/antlr4-sqlparser
+module KeArcus/sqlevaluate
 
 go 1.22
 

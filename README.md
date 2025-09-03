@@ -22,7 +22,7 @@ package main
 
 import (
     "fmt"
-    "github.com/antlr4-sqlparser/parser"
+    "KeArcus/sqlevaluate/parser"
 )
 
 func main() {
@@ -52,6 +52,10 @@ func main() {
 # Generate parser from grammar
 antlr4 -Dlanguage=Go -o parser grammar/SQL.g4
 
+# Run examples
+go run examples/basic_usage.go
+go run examples/functions_example.go
+
 # Run tests
-go test ./...
+go test ./parser
 ```

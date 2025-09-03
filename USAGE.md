@@ -16,7 +16,7 @@ package main
 
 import (
     "fmt"
-    "github.com/antlr4-sqlparser/parser"
+    "KeArcus/sqlevaluate/parser"
 )
 
 func main() {
