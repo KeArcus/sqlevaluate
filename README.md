@@ -1,4 +1,4 @@
-# ANTLR4 SQL Parser
+# SQL Parser/Evaluate
 
 A Go project that uses ANTLR4 to parse SQL statements, focusing on WHERE clause evaluation with environment variable matching.
 
